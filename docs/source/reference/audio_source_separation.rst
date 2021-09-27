@@ -22,11 +22,14 @@ Example
 
 Let's look at the task of separating a mixture into two voice sounds.
 The dataset contains:
+
 * ``{stage}/s1``: Source of the first voice
 * ``{stage}/s2``: Source of the second voice
 * ``{stage}/noise``: Additional noise to make the task harder.
 * ``{stage}/mix_clean``: Mixture of the two voice sounds
 * ``{stage}/mix_both``: Mixture of the two voice sounds with additional noise.
+
+
 
 .. code-block::
 
