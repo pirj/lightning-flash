@@ -253,3 +253,8 @@ class PreTransform(Properties):
 
     def __getitem__(self, placement: PreTransformPlacement) -> Callable:
         return self.transform[placement]
+
+
+class DefaultPreTransform(PreTransform):
+    def configure_transforms(self) -> Optional[Dict[str, Callable]]:
+        return {PreTransformPlacement.COLLATE: default_collate}
