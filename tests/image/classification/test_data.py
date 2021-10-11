@@ -503,8 +503,8 @@ def single_target_csv(image_tmpdir):
         fieldnames = ["image", "target"]
         writer = csv.DictWriter(csvfile, fieldnames)
         writer.writeheader()
-        writer.writerow({"image": "image_1", "target": "Ants"})
-        writer.writerow({"image": "image_2", "target": "Bees"})
+        writer.writerow({"image": f"{image_tmpdir}/image_1.png", "target": "Ants"})
+        writer.writerow({"image": f"{image_tmpdir}/image_2.png", "target": "Bees"})
     return str(image_tmpdir / "metadata.csv")
 
 
@@ -531,8 +531,8 @@ def multi_target_csv(image_tmpdir):
         fieldnames = ["image", "target_1", "target_2"]
         writer = csv.DictWriter(csvfile, fieldnames)
         writer.writeheader()
-        writer.writerow({"image": "image_1", "target_1": 1, "target_2": 0})
-        writer.writerow({"image": "image_2", "target_1": 1, "target_2": 1})
+        writer.writerow({"image": f"{image_tmpdir}/image_1.png", "target_1": 1, "target_2": 0})
+        writer.writerow({"image": f"{image_tmpdir}/image_2.png", "target_1": 1, "target_2": 1})
     return str(image_tmpdir / "metadata.csv")
 
 

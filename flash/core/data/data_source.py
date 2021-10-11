@@ -41,6 +41,7 @@ import pandas as pd
 import torch
 from pytorch_lightning.trainer.states import RunningStage
 from pytorch_lightning.utilities.enums import LightningEnum
+from pytorch_lightning.utilities.exceptions import MisconfigurationException
 from torch.nn import Module
 from torch.utils.data.dataset import Dataset
 from tqdm import tqdm
@@ -524,18 +525,11 @@ class LoaderDataFrameDataSource(
 
     @staticmethod
     def _default_resolver(root: str, id: str):
-        if os.path.isabs(id):
+        if os.path.isfile(id):
             return id
 
-        pattern = f"*{id}*"
-
-        try:
-            return str(next(Path(root).rglob(pattern)))
-        except StopIteration:
-            raise ValueError(
-                f"Found no matches for pattern: {pattern} in directory: {root}. File IDs should uniquely identify the "
-                "file to load."
-            )
+        raise MisconfigurationException(
+            "Please, your data should contain an absolute file path to the file.")
 
     @staticmethod
     def _resolve_file(resolver: Callable[[str, str], str], root: str, input_key: str, row: pd.Series) -> pd.Series:
