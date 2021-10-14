@@ -1,4 +1,4 @@
-../requirements.txt
+-r ../requirements.txt
 torchvision
 timm>=0.4.5
 lightning-bolts>=0.3.3
