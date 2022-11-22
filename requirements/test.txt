@@ -2,19 +2,16 @@ coverage
 codecov>=2.1
 pytest>=5.0,<7.0
 pytest-flake8
-flake8
 pytest-doctestplus>=0.9.0
 pytest-rerunfailures>=10.0
 pytest-forked
+pytest_mock
 
 # install pkg
 check-manifest
-twine==3.2
+twine==4.0.1
 
 # formatting
 pre-commit
-isort
-#mypy
 scikit-learn
-pytest_mock
 torch_optimizer
