@@ -147,7 +147,7 @@ class ActiveLearningLoop(Loop):
         return self.__dict__[key]
 
     def _connect(self, model: LightningModule):
-        self.trainer.training_type_plugin.connect(model)
+        self.trainer.strategy.connect(model)
 
     def _reset_fitting(self):
         self.trainer.state.fn = TrainerFn.FITTING
